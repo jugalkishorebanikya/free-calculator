@@ -282,12 +282,36 @@ public class ScientificCalculatorService {
     }
 
     public CalcResponse median(double[] values) {
-        validateArr(values);
-        double[] s = values.clone();
-        Arrays.sort(s);
-        int n = s.length;
-        double r = (n % 2 == 0) ? (s[n/2-1] + s[n/2]) / 2.0 : s[n/2];
-        return new CalcResponse("median", r, "median = " + fmt(r));
+
+        if (values == null || values.length == 0) {
+            throw new CalculatorException(
+                    "EMPTY_INPUT",
+                    "Values array cannot be empty."
+            );
+        }
+
+        double[] sorted = Arrays.copyOf(values, values.length);
+
+        Arrays.sort(sorted);
+
+        double r;
+
+        int n = sorted.length;
+
+        if (n % 2 == 0) {
+
+            r = (sorted[n / 2 - 1] + sorted[n / 2]) / 2.0;
+
+        } else {
+
+            r = sorted[n / 2];
+        }
+
+        return new CalcResponse(
+                "median",
+                r,
+                "median = " + fmt(r)
+        );
     }
 
     public CalcResponse standardDeviation(double[] values) {
