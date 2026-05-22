@@ -10,4 +10,4 @@ RUN mvn clean package -DskipTests
 
 EXPOSE 8080
 
-CMD ["java", "-jar", "target/scicalculator-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "target/sci-calculator-1.0.0.jar"]
