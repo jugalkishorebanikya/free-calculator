@@ -1,0 +1,303 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* =========================
+   BODY
+========================= */
+
+body {
+    background: linear-gradient(135deg, #d6d6d6, #bcbcbc);
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+/* =========================
+   CALCULATOR BODY
+========================= */
+
+.calculator {
+
+ width: min(470px, 100%);
+
+    background:
+        linear-gradient(180deg, #1d2430, #141922);
+
+    border-radius: 28px;
+
+    padding: 22px;
+
+    border: 2px solid #0d1117;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,0.55),
+        inset 0 2px 2px rgba(255,255,255,0.04),
+        inset 0 -2px 4px rgba(0,0,0,0.35);
+}
+
+/* =========================
+   TOP BRAND
+========================= */
+
+.top-brand {
+
+    color: white;
+
+    margin-bottom: 18px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 0.9rem;
+
+    letter-spacing: 1px;
+
+    padding: 0 4px;
+}
+
+/* =========================
+   SCREEN
+========================= */
+
+.screen {
+
+    background:
+        linear-gradient(180deg, #d9e8c8, #bfd0aa);
+
+    height: 135px;
+
+    border-radius: 20px;
+
+    margin-bottom: 18px;
+
+    padding: 18px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    border: 4px solid #98a48b;
+
+    box-shadow:
+        inset 0 5px 15px rgba(0,0,0,0.28),
+        inset 0 -3px 6px rgba(255,255,255,0.2);
+}
+
+/* =========================
+   EXPRESSION DISPLAY
+========================= */
+
+.expression {
+
+    font-size: 1.8rem;
+
+    color: #1f1f1f;
+
+    text-align: right;
+
+    overflow-x: auto;
+
+    white-space: nowrap;
+
+    font-weight: 500;
+
+    scrollbar-width: none;
+
+    max-width: 100%;
+
+    padding-bottom: 4px;
+}
+
+.expression::-webkit-scrollbar {
+    display: none;
+}
+
+/* =========================
+   RESULT DISPLAY
+========================= */
+
+.result {
+
+    font-size: 3.1rem;
+
+    font-weight: bold;
+
+    color: #111;
+
+    text-align: right;
+
+    overflow-x: auto;
+
+    white-space: nowrap;
+
+    scrollbar-width: none;
+
+    max-width: 100%;
+}
+.result::-webkit-scrollbar {
+    display: none;
+}
+
+/* =========================
+   BUTTON GRID
+========================= */
+
+.buttons {
+
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 7px;
+}
+
+/* =========================
+   BASE BUTTON
+========================= */
+
+button {
+
+    height: 40px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    font-size: 0.95rem;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: all 0.12s ease;
+
+    box-shadow:
+        inset -2px -2px 4px rgba(255,255,255,0.08),
+        inset 2px 2px 4px rgba(0,0,0,0.35),
+        0 4px 8px rgba(0,0,0,0.25);
+}
+
+/* =========================
+   BUTTON INTERACTIONS
+========================= */
+
+button:hover {
+     transform: translateY(1px);
+
+       filter: brightness(1.05);
+}
+
+button:active {
+     transform: scale(0.95);
+
+       box-shadow:
+           inset 2px 2px 5px rgba(0,0,0,0.4);
+}
+
+/* =========================
+   NORMAL NUMBER BUTTONS
+========================= */
+
+button:not(.dark):not(.orange):not(.gray):not(.equal) {
+
+    background:
+        linear-gradient(180deg, #f3f5f8, #dfe3ea);
+
+    color: #111;
+}
+
+/* =========================
+   SCIENTIFIC BUTTONS
+========================= */
+
+.dark {
+
+    background:
+        linear-gradient(180deg, #39445b, #2a3243);
+
+    color: white;
+}
+
+/* =========================
+   OPERATOR BUTTONS
+========================= */
+
+.orange {
+
+    background:
+        linear-gradient(180deg, #ffb04d, #ff9130);
+
+    color: white;
+}
+
+/* =========================
+   SYSTEM BUTTONS
+========================= */
+
+.gray {
+
+    background:
+        linear-gradient(180deg, #6b7280, #555d6a);
+
+    color: white;
+}
+
+/* =========================
+   EQUAL BUTTON
+========================= */
+
+.equal {
+font-weight: bold;
+    background:
+        linear-gradient(180deg, #ff4b7d, #ff1f5d);
+
+    color: white;
+
+    font-size: 1.4rem;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width: 550px) {
+
+    .calculator {
+
+        width: 100%;
+
+        padding: 16px;
+    }
+
+    .screen {
+
+        height: 120px;
+    }
+
+    .expression {
+
+        font-size: 1.2rem;
+    }
+
+    .result {
+
+        font-size: 2.3rem;
+    }
+
+    button {
+
+       height: 48px;
+
+         font-size: 0.72rem;
+    }
+}

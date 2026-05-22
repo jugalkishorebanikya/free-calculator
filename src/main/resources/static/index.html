@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Free Cal Scientific Calculator</title>
+
+    <link rel="icon"
+          href="https://cdn-icons-png.flaticon.com/512/991/991952.png">
+
+    <link rel="stylesheet"
+          href="style.css">
+
+</head>
+
+<body>
+
+<div class="calculator">
+
+    <!-- =========================
+         TOP BRANDING
+    ========================== -->
+
+    <div class="top-brand">
+
+        <div>
+            FREE CAL
+        </div>
+
+        <div>
+            ENGINEERING CALCULATOR
+        </div>
+
+    </div>
+
+    <!-- =========================
+         SCREEN
+    ========================== -->
+
+    <div class="screen">
+
+        <div id="expression"
+             class="expression">
+        </div>
+
+        <div id="result"
+             class="result">
+            0
+        </div>
+
+    </div>
+
+    <!-- =========================
+         BUTTON GRID
+    ========================== -->
+
+    <div class="buttons">
+
+        <!-- SYSTEM -->
+
+        <button class="gray"
+                onclick="clearDisplay()">
+            AC
+        </button>
+
+        <button class="gray"
+                onclick="deleteLast()">
+            DEL
+        </button>
+
+        <button class="orange"
+                onclick="appendValue('(')">
+            (
+        </button>
+
+        <button class="orange"
+                onclick="appendValue(')')">
+            )
+        </button>
+
+        <button class="orange"
+                onclick="appendValue('/')">
+            ÷
+        </button>
+
+        <!-- TRIG -->
+
+        <button class="dark"
+                onclick="unaryOperation('sin')">
+            sin
+        </button>
+
+        <button class="dark"
+                onclick="unaryOperation('cos')">
+            cos
+        </button>
+
+        <button class="dark"
+                onclick="unaryOperation('tan')">
+            tan
+        </button>
+
+        <button class="dark"
+                onclick="unaryOperation('sinh')">
+            sinh
+        </button>
+
+        <button class="dark"
+                onclick="unaryOperation('cosh')">
+            cosh
+        </button>
+
+        <button class="dark"
+                onclick="unaryOperation('tanh')">
+            tanh
+        </button>
+
+        <button class="dark"
+                onclick="unaryOperation('asin')">
+            sin⁻¹
+        </button>
+
+        <button class="dark"
+                onclick="unaryOperation('acos')">
+            cos⁻¹
+        </button>
+
+        <button class="dark"
+                onclick="unaryOperation('atan')">
+            tan⁻¹
+        </button>
+
+        <button class="orange"
+                onclick="appendValue('*')">
+            ×
+        </button>
+
+        <!-- ROOTS / POWERS -->
+
+        <button class="dark"
+                onclick="unaryOperation('sqrt')">
+            √
+        </button>
+
+        <button class="dark"
+                onclick="unaryOperation('cbrt')">
+            ∛
+        </button>
+
+        <button class="dark"
+                onclick="appendValue('**2')">
+            x²
+        </button>
+
+        <button class="dark"
+                onclick="binaryOperation('power')">
+            xʸ
+        </button>
+
+        <button class="orange"
+                onclick="appendValue('-')">
+            −
+        </button>
+
+        <!-- LOGS -->
+
+        <button class="dark"
+                onclick="unaryOperation('log10')">
+            log
+        </button>
+
+        <button class="dark"
+                onclick="unaryOperation('log2')">
+            log₂
+        </button>
+
+        <button class="dark"
+                onclick="unaryOperation('ln')">
+            ln
+        </button>
+
+        <button class="dark"
+                onclick="unaryOperation('exp')">
+            eˣ
+        </button>
+
+        <button class="orange"
+                onclick="appendValue('+')">
+            +
+        </button>
+
+        <!-- NUMBER PAD -->
+
+        <button onclick="appendValue('7')">
+            7
+        </button>
+
+        <button onclick="appendValue('8')">
+            8
+        </button>
+
+        <button onclick="appendValue('9')">
+            9
+        </button>
+
+        <button class="dark"
+                onclick="binaryOperation('modulo')">
+            mod
+        </button>
+
+        <button class="dark"
+                onclick="unaryOperation('abs')">
+            |x|
+        </button>
+
+        <button onclick="appendValue('4')">
+            4
+        </button>
+
+        <button onclick="appendValue('5')">
+            5
+        </button>
+
+        <button onclick="appendValue('6')">
+            6
+        </button>
+
+        <button class="dark"
+                onclick="unaryOperation('ceil')">
+            ceil
+        </button>
+
+        <button class="dark"
+                onclick="unaryOperation('floor')">
+            floor
+        </button>
+
+        <button onclick="appendValue('1')">
+            1
+        </button>
+
+        <button onclick="appendValue('2')">
+            2
+        </button>
+
+        <button onclick="appendValue('3')">
+            3
+        </button>
+
+        <button class="dark"
+                onclick="unaryOperation('round')">
+            round
+        </button>
+
+        <button class="dark"
+                onclick="unaryOperation('signum')">
+            sign
+        </button>
+
+        <button onclick="appendValue('0')">
+            0
+        </button>
+
+        <button onclick="appendValue('.')">
+            .
+        </button>
+
+        <button class="dark"
+                onclick="appendValue('π')">
+            π
+        </button>
+
+        <button class="dark"
+                onclick="appendValue('e')">
+            e
+        </button>
+
+        <button class="equal"
+                onclick="calculateExpression()">
+            =
+        </button>
+
+        <!-- ADVANCED -->
+
+        <button class="dark"
+                onclick="factorialOperation()">
+            x!
+        </button>
+
+        <button class="dark"
+                onclick="combinatoricsOperation('permutation')">
+            nPr
+        </button>
+
+        <button class="dark"
+                onclick="combinatoricsOperation('combination')">
+            nCr
+        </button>
+
+        <button class="dark"
+                onclick="binaryOperation('atan2')">
+            atan2
+        </button>
+
+        <button class="dark"
+                onclick="unaryOperation('exp10')">
+            10ˣ
+        </button>
+
+        <!-- NUMBER THEORY -->
+
+        <button class="dark"
+                onclick="gcdLcmOperation('gcd')">
+            GCD
+        </button>
+
+        <button class="dark"
+                onclick="gcdLcmOperation('lcm')">
+            LCM
+        </button>
+
+        <button class="dark"
+                onclick="primeOperation()">
+            Prime?
+        </button>
+
+        <button class="dark"
+                onclick="binaryOperation('log-base')">
+            logₙ
+        </button>
+
+        <button class="dark"
+                onclick="binaryOperation('nth-root')">
+            ⁿ√x
+        </button>
+
+        <!-- UNIT CONVERSIONS -->
+
+        <button class="dark"
+                onclick="unaryOperation('deg-to-rad')">
+            Deg→Rad
+        </button>
+
+        <button class="dark"
+                onclick="unaryOperation('rad-to-deg')">
+            Rad→Deg
+        </button>
+
+        <button class="dark"
+                onclick="unaryOperation('km-to-miles')">
+            KM→Miles
+        </button>
+
+        <button class="dark"
+                onclick="unaryOperation('miles-to-km')">
+            Miles→KM
+        </button>
+
+        <button class="dark"
+                onclick="unaryOperation('kg-to-lbs')">
+            KG→LBS
+        </button>
+
+        <button class="dark"
+                onclick="unaryOperation('lbs-to-kg')">
+            LBS→KG
+        </button>
+
+        <button class="dark"
+                onclick="unaryOperation('meters-to-feet')">
+            M→FT
+        </button>
+
+        <button class="dark"
+                onclick="unaryOperation('feet-to-meters')">
+            FT→M
+        </button>
+
+        <button class="dark"
+                onclick="unaryOperation('celsius-to-fahrenheit')">
+            C→F
+        </button>
+
+        <button class="dark"
+                onclick="unaryOperation('fahrenheit-to-celsius')">
+            F→C
+        </button>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
